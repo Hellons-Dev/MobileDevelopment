@@ -34,7 +34,101 @@ struct Events : Codable {
     let speakers : [Speakers]
 }
 
-let Belinda = Speakers(speakers: Persons(name: "Belinda Chen", company: "Home SecurTech", role: "Product Manager", email: "belinda@email.com", phone: "(123) 456-7890"))
+struct Records: Codable {
+    let records : [Events]
+}
+
+struct Response: Codable {
+    let id: String
+    let deleted: Bool
+}
+
+struct ErrorResponse: Codable {
+    let error: String
+}
+
+enum RequestType: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
+enum CustomError: Error {
+    case requestError
+    case statusCodeError
+    case parsingError
+}
+
+// Request Factory
+protocol RequestFactoryProtocol {
+    func createRequest(urlStr: String, requestType: RequestType, params: [String]?) -> URLRequest
+    func getFurnitureList(callback: @escaping ((errorType: CustomError?, errorMessage: String?), [Events]?) -> Void)
+}
+
+private let eventUrl = "https://airtable.com/appLxCaCuYWnjaSKB/tblon3PzkaCkPGUnr/viwPg3QwJjoQEsQSQ?blocks=hide"
+
+class RequestFactory: RequestFactoryProtocol {
+    internal func createRequest(urlStr: String, requestType: RequestType, params: [String]?) -> URLRequest {
+        var url: URL = URL(string: urlStr)!
+        if let params = params {
+            var urlParams = urlStr
+            for param in params {
+                urlParams = urlParams + "/" + param
+            }
+            print(urlParams)
+            url = URL(string: urlParams)!
+        }
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 100
+        request.httpMethod = requestType.rawValue
+        let accessToken = "keymaCPSexfxC2hF9"
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField:"Authorization")
+        return request
+    }
+    func getFurnitureList(callback: @escaping ((errorType: CustomError?, errorMessage: String?), [Events]?) -> Void) {
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: createRequest(urlStr: eventUrl, requestType: .get, params: nil)) {
+            (data, response, error) in
+            if let data = data, error == nil {
+                if let responseHttp = response as? HTTPURLResponse {
+                    if responseHttp.statusCode == 200 {
+                        if let response = try?
+                            JSONDecoder().decode(Records.self, from: data) {
+                            callback((nil, nil), response.records)
+                        }
+                        else {
+                            callback((CustomError.parsingError, "parsing error"), nil)
+                        }
+                    }
+                    else {
+                        callback((CustomError.statusCodeError, "status code: \(responseHttp.statusCode)"), nil)
+                    }
+                }
+            }
+            else {
+                callback((CustomError.requestError, error.debugDescription), nil)
+            }
+        }
+        task.resume()
+    }
+}
+
+// Controller
+
+let requestFactory = RequestFactory()
+
+requestFactory.getFurnitureList {
+    (errorHandle, Events) in
+    if let _ = errorHandle.errorType, let errorMessage = errorHandle.errorMessage {
+        print(errorMessage)
+    }
+    else if let list = Events, let Events = list.last {
+        print(Events.activity)
+    }
+    else {
+        print("Houston we got a problem")
+    }
+}
 
 struct InformationGetterScript: View {
     var body: some View {
@@ -42,7 +136,7 @@ struct InformationGetterScript: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text(String(decoding: Belinda, as: UTF8.self))
+            Text("some text")
         }
         .padding()
     }
