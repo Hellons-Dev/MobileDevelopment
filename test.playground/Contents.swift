@@ -13,20 +13,18 @@ struct Schedule : Codable{
 }
 
 struct Fields: Codable{
-    let activity: String
-    let type: String?
-    let start: String
-    let end : String
-    let location : String
-    let speaker :[String]
-    let notes : String
-    enum CodingKeys : String, CodingKey {
+    let end, activity, type: String
+    let speakerS: [String]?
+    let start, location: String
+    let notes: String?
+
+    enum CodingKeys: String, CodingKey {
+        case end = "End"
         case activity = "Activity"
         case type = "Type"
+        case speakerS = "Speaker(s)"
         case start = "Start"
-        case end = "End"
         case location = "Location"
-        case speaker = "Speaker(s)"
         case notes = "Notes"
     }
 }
@@ -58,7 +56,7 @@ protocol RequestFactoryProtocol {
 }
 
 
-let url = "https://airtable.com/appLxCaCuYWnjaSKB/tblon3PzkaCkPGUnr/viwPg3QwJjoQEsQSQ?blocks=hide"
+let url = "https://api.airtable.com/v0/appLxCaCuYWnjaSKB/%F0%9F%93%86%20Schedule?maxRecords=3&view=Full%20schedule"
 
 
 class RequestFactory : RequestFactoryProtocol {
@@ -84,18 +82,24 @@ class RequestFactory : RequestFactoryProtocol {
     func getFurnitureList(callback: @escaping ((errorType: CustomError?,
                                                 errorMessage: String?), [Schedule]?) -> Void) {
         let session = URLSession(configuration: .default)
-        let furnitureUrlStr = "https://airtable.com/appLxCaCuYWnjaSKB/tblon3PzkaCkPGUnr/viwPg3QwJjoQEsQSQ?blocks=hide" // my modification
+        let furnitureUrlStr = "https://api.airtable.com/v0/appLxCaCuYWnjaSKB/%F0%9F%93%86%20Schedule" // my modification
         let task = session.dataTask(with: createRequest(urlStr:furnitureUrlStr,requestType: .get,params: nil)) {(data, response, error) in
             if let data = data, error == nil {
+                print(data.description)
                 if let responseHttp = response as? HTTPURLResponse {
                     if responseHttp.statusCode == 200 {
+                        //rint(data, "lllllllllllllllllllllll")
+                        print("oooooooooooooooooooooooo")
                         if let response = try?JSONDecoder().decode(Records.self, from: data) {
                             callback((nil, nil), response.records)
+                            print(data, "lllllllllllllllllllllll")
+                            //print("sssssssssssssssssss")
                         }
                         else{
                             callback((CustomError.parsingError, "parsingerror"), nil)
                             print(responseHttp.statusCode, "responseHttp statusCode \n")
-                            print(response!)
+                            //print("sssssssssssssssssss")
+                            //print(response!)
                         }
                     }
                     else{
@@ -121,8 +125,19 @@ requestFactory.getFurnitureList { (errorHandle, furnitures) in
         print(errorMessage, "I get a parsing error \n")
     }
     else if let list = furnitures, let furniture = list.last {
+        print(list.count)
         print(furniture.id)
+        print(furniture.fields)
+        print("I got something")
     }
+    if let list = furnitures {
+        for x in furnitures! {
+            print(x.id)
+            //print(x.fields)
+            print("I got something")
+        }
+    }
+    
     else {
         print("Houston we got a problem")
         } }
