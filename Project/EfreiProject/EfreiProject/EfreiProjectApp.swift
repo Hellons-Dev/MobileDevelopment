@@ -12,7 +12,7 @@ struct EfreiProjectApp: App {
     var body: some Scene {
         WindowGroup {
             HomePage()
-            InformationGetterScript()
+            
         }
     }
 }
