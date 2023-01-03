@@ -1,50 +1,40 @@
-//
-//  InformationGetterScript.swift
-//  EfreiProject
-//
-//  Created by user231584 on 12/21/22.
-//
-
-import Foundation
-import UIKit
 import SwiftUI
+import Foundation
 
-struct Persons: Codable {
-    let name : String
-    let company : String
-    let role : String
-    let email : String
-    let phone : String
-}
-
-struct Speakers: Codable {
-    let speakers : Persons
-}
-
-struct Attendees: Codable {
-    let attendees : Persons
-}
-
-struct Events : Codable {
-    let activity : String
-    let type : String
-    let start : Date
-    let end : Int
-    let location : String
-    let speakers : [Speakers]
-}
+//  Model
 
 struct Records: Codable {
-    let records : [Events]
+    let records: [Schedule]?
 }
 
-struct Response: Codable {
+struct Schedule : Codable, Hashable{
     let id: String
-    let deleted: Bool
+    let fields : Fields
 }
 
-struct ErrorResponse: Codable {
-    let error: String
+struct Fields: Codable, Hashable{
+    let end, activity, type: String
+    let speakerS: [String]?
+    let start, location: String
+    let notes: String?
+
+    enum CodingKeys: String, CodingKey {
+        case end = "End"
+        case activity = "Activity"
+        case type = "Type"
+        case speakerS = "Speaker(s)"
+        case start = "Start"
+        case location = "Location"
+        case notes = "Notes"
+    }
+}
+
+struct Response: Codable{
+    let id : String
+    let deleted : Bool
+}
+struct ErrorResponse: Codable{
+    let error : String
 }
 
 enum RequestType: String {
@@ -58,92 +48,83 @@ enum CustomError: Error {
     case statusCodeError
     case parsingError
 }
-
 // Request Factory
 protocol RequestFactoryProtocol {
     func createRequest(urlStr: String, requestType: RequestType, params: [String]?) -> URLRequest
-    func getFurnitureList(callback: @escaping ((errorType: CustomError?, errorMessage: String?), [Events]?) -> Void)
+    func getSchedule(callback: @escaping ((errorType: CustomError?,errorMessage: String?), [Schedule]?) -> Void)
+    
 }
 
-private let eventUrl = "https://airtable.com/appLxCaCuYWnjaSKB/tblon3PzkaCkPGUnr/viwPg3QwJjoQEsQSQ?blocks=hide"
 
-class RequestFactory: RequestFactoryProtocol {
-    internal func createRequest(urlStr: String, requestType: RequestType, params: [String]?) -> URLRequest {
+
+
+
+class RequestFactory : RequestFactoryProtocol, ObservableObject {
+    @Published var schedules : [Schedule] = []
+    
+    internal func createRequest(urlStr: String, requestType: RequestType,params: [String]?) -> URLRequest {
         var url: URL = URL(string: urlStr)!
         if let params = params {
             var urlParams = urlStr
             for param in params {
                 urlParams = urlParams + "/" + param
             }
-            print(urlParams)
             url = URL(string: urlParams)!
         }
         var request = URLRequest(url: url)
         request.timeoutInterval = 100
         request.httpMethod = requestType.rawValue
         let accessToken = "keymaCPSexfxC2hF9"
-        request.setValue("Bearer \(accessToken)", forHTTPHeaderField:"Authorization")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField:
+                            "Authorization")
         return request
     }
-    func getFurnitureList(callback: @escaping ((errorType: CustomError?, errorMessage: String?), [Events]?) -> Void) {
+    func getSchedule(callback: @escaping ((errorType: CustomError?,
+                                                errorMessage: String?), [Schedule]?) -> Void) {
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: createRequest(urlStr: eventUrl, requestType: .get, params: nil)) {
-            (data, response, error) in
+        let scheduleUrlString = "https://api.airtable.com/v0/appLxCaCuYWnjaSKB/%F0%9F%93%86%20Schedule" // my modification
+        let task = session.dataTask(with: createRequest(urlStr:scheduleUrlString,requestType: .get,params: nil)) {(data, response, error) in
             if let data = data, error == nil {
+                print(data.description)
                 if let responseHttp = response as? HTTPURLResponse {
                     if responseHttp.statusCode == 200 {
-                        if let response = try?
-                            JSONDecoder().decode(Records.self, from: data) {
+                        
+                        if let response = try?JSONDecoder().decode(Records.self, from: data) {
                             callback((nil, nil), response.records)
+                            DispatchQueue.main.async {
+                                self.schedules = response.records!
+                            }
+                        
                         }
-                        else {
-                            callback((CustomError.parsingError, "parsing error"), nil)
+                        else{
+                            callback((CustomError.parsingError, "parsingerror"), nil)
+                            print(responseHttp.statusCode, "responseHttp statusCode \n")
                         }
                     }
-                    else {
-                        callback((CustomError.statusCodeError, "status code: \(responseHttp.statusCode)"), nil)
+                    else{
+                        callback((CustomError.statusCodeError, "statuscode: \(responseHttp.statusCode)"), nil)
                     }
                 }
             }
-            else {
-                callback((CustomError.requestError, error.debugDescription), nil)
+            else{
+                callback((CustomError.requestError,error.debugDescription), nil)
             }
         }
         task.resume()
-    }
-}
 
-// Controller
-
-let requestFactory = RequestFactory()
-
-requestFactory.getFurnitureList {
-    (errorHandle, Events) in
-    if let _ = errorHandle.errorType, let errorMessage = errorHandle.errorMessage {
-        print(errorMessage)
     }
-    else if let list = Events, let Events = list.last {
-        print(Events.activity)
-    }
-    else {
-        print("Houston we got a problem")
-    }
-}
-
-struct InformationGetterScript: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("some text")
+    
+    func fetch(){
+        let requestFactory = RequestFactory()
+        requestFactory.getSchedule { (errorHandle, events) in
+            if let list = events, let event = list.last {
+                //print(type(of: list))
+                //print(list.count)
+                Text(event.id)
+                //print(furniture.fields)
+                //print("I got something")
+            }
         }
-        .padding()
     }
-}
-
-struct InformationGetterScript_Preview: PreviewProvider {
-    static var previews: some View {
-        InformationGetterScript()
-    }
+    
 }

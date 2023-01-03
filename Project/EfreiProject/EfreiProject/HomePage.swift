@@ -13,7 +13,7 @@ struct HomePage: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Event of the day:")
         }
         .padding()
     }

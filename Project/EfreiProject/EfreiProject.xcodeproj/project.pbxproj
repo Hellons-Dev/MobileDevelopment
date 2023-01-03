@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDAC485A296479FB00FCA94A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC4859296479FA00FCA94A /* ListView.swift */; };
+		FDAC485C29647AE000FCA94A /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC485B29647AE000FCA94A /* EventView.swift */; };
+		FDAC485E29647B8300FCA94A /* ListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC485D29647B8300FCA94A /* ListEntryView.swift */; };
 		FDBFDC27294767CA00143568 /* EfreiProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */; };
 		FDBFDC2B294767CD00143568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBFDC2A294767CD00143568 /* Assets.xcassets */; };
 		FDBFDC2E294767CD00143568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBFDC2D294767CD00143568 /* Preview Assets.xcassets */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FDAC4859296479FA00FCA94A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		FDAC485B29647AE000FCA94A /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		FDAC485D29647B8300FCA94A /* ListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryView.swift; sourceTree = "<group>"; };
 		FDBFDC23294767CA00143568 /* EfreiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfreiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectApp.swift; sourceTree = "<group>"; };
 		FDBFDC2A294767CD00143568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */,
 				FDBFDC5029476ECF00143568 /* HomePage.swift */,
 				FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */,
+				FDAC4859296479FA00FCA94A /* ListView.swift */,
+				FDAC485B29647AE000FCA94A /* EventView.swift */,
+				FDAC485D29647B8300FCA94A /* ListEntryView.swift */,
 				FDBFDC2A294767CD00143568 /* Assets.xcassets */,
 				FDBFDC2C294767CD00143568 /* Preview Content */,
 			);
@@ -261,8 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDD1625C29531BBD00F171AC /* InformationGetterScript.swift in Sources */,
+				FDAC485E29647B8300FCA94A /* ListEntryView.swift in Sources */,
+				FDAC485A296479FB00FCA94A /* ListView.swift in Sources */,
 				FDBFDC5129476ECF00143568 /* HomePage.swift in Sources */,
 				FDBFDC27294767CA00143568 /* EfreiProjectApp.swift in Sources */,
+				FDAC485C29647AE000FCA94A /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
