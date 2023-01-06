@@ -132,12 +132,52 @@ requestFactory.getFurnitureList { (errorHandle, furnitures) in
     }
     if let list = furnitures {
         for x in furnitures! {
-            print(x.id)
-            //print(x.fields)
-            print("I got something")
+            //print(x.id)
+            print(x.fields.activity)
+            print(x.fields.start)
+            print("\n")
+            //print("I got something")
         }
     }
     
     else {
         print("Houston we got a problem")
         } }
+
+
+let str = "2019-08-12T10:34:05.000Z"
+let formatter = DateFormatter()
+formatter.locale = Locale(identifier: "en_US_POSIX")
+formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+if let date = formatter.date(from: str) {
+    formatter.dateFormat = "hh:mm:ss a"
+    let timeStr = formatter.string(from: date)
+    print(timeStr) //add timeStr to your timeLabel here...
+
+    formatter.dateFormat = "yyyy-MM-dd"
+    let dateStr = formatter.string(from: date)
+    print(dateStr) //add dateStr to your dateLabel here...
+    
+    formatter.dateFormat = "yyyy-MM-dd"
+    let dateStr1 = formatter.string(from: date)
+    print(dateStr1) //add dateStr to your dateLabel here...
+}
+
+func isToday(str : String, ourdate : String) -> Bool{
+    var cond:Bool
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "fr_FR")
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    let date = formatter.date(from: str)
+    formatter.dateFormat = "yyyy-MM-dd"
+    let dateStr = formatter.string(from: date!)
+    if dateStr != ourdate{
+        cond = false
+    }
+    else{
+        cond = true
+    }
+    return cond
+}
+
+print(isToday(str: "2019-08-12T10:34:05.000Z", ourdate: "2019-08-12T10:34:05.000Z"), "lool")
