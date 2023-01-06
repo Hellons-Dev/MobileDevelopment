@@ -180,4 +180,30 @@ func isToday(str : String, ourdate : String) -> Bool{
     return cond
 }
 
-print(isToday(str: "2019-08-12T10:34:05.000Z", ourdate: "2019-08-12T10:34:05.000Z"), "lool")
+
+struct dataFormatter {
+    func createFormatter(str : String) -> String{
+        let time: String
+        let date: String
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "fr_FR")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let rez = formatter.date(from: str) {
+            formatter.dateFormat = "hh:mm:ss a"
+            time = formatter.string(from: rez)
+            //print(time) //add timeStr to your timeLabel here...
+
+            formatter.dateFormat = "yyyy-MM-dd"
+            date = formatter.string(from: rez)
+            //print(date) //add dateStr to your dateLabel here...
+            let res = date + " " + time
+            return res
+            }
+        else{
+            return "something"
+        }
+    }
+        
+}
+
+
