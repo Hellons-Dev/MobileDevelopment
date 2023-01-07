@@ -18,6 +18,7 @@
 		FDBFDC44294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC43294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift */; };
 		FDBFDC5129476ECF00143568 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC5029476ECF00143568 /* HomePage.swift */; };
 		FDD1625C29531BBD00F171AC /* InformationGetterScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */; };
+		FDDEE7CA296A09C3003B2A02 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		FDBFDC43294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FDBFDC5029476ECF00143568 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationGetterScript.swift; sourceTree = "<group>"; };
+		FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */,
+				FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */,
 				FDBFDC5029476ECF00143568 /* HomePage.swift */,
 				FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */,
 				FDAC4859296479FA00FCA94A /* ListView.swift */,
@@ -274,6 +277,7 @@
 				FDAC485A296479FB00FCA94A /* ListView.swift in Sources */,
 				FDBFDC5129476ECF00143568 /* HomePage.swift in Sources */,
 				FDBFDC27294767CA00143568 /* EfreiProjectApp.swift in Sources */,
+				FDDEE7CA296A09C3003B2A02 /* LoadingView.swift in Sources */,
 				FDAC485C29647AE000FCA94A /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

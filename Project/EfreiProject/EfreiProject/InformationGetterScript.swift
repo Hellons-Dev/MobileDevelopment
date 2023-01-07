@@ -9,13 +9,13 @@ struct Records: Codable {
 
 struct Schedule : Codable, Hashable{
     let id: String
-    let fields : Fields
+    var fields : Fields
 }
 
 struct Fields: Codable, Hashable{
-    let end, activity, type: String
+    var end, activity, type: String
     let speakerS: [String]?
-    let start, location: String
+    var start, location: String
     let notes: String?
 
     enum CodingKeys: String, CodingKey {
@@ -61,6 +61,7 @@ protocol RequestFactoryProtocol {
 
 class RequestFactory : RequestFactoryProtocol, ObservableObject {
     @Published var schedules : [Schedule] = []
+    @Published var ready : Bool = false
     
     internal func createRequest(urlStr: String, requestType: RequestType,params: [String]?) -> URLRequest {
         var url: URL = URL(string: urlStr)!
@@ -83,18 +84,23 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                                                 errorMessage: String?), [Schedule]?) -> Void) {
         let session = URLSession(configuration: .default)
         let scheduleUrlString = "https://api.airtable.com/v0/appLxCaCuYWnjaSKB/%F0%9F%93%86%20Schedule" // my modification
+        
         let task = session.dataTask(with: createRequest(urlStr:scheduleUrlString,requestType: .get,params: nil)) {(data, response, error) in
             if let data = data, error == nil {
                 print(data.description)
                 if let responseHttp = response as? HTTPURLResponse {
                     if responseHttp.statusCode == 200 {
-                        
+                        let group = DispatchGroup()
+                        group.enter()
                         if let response = try?JSONDecoder().decode(Records.self, from: data) {
                             callback((nil, nil), response.records)
+                            
                             DispatchQueue.main.async {
                                 self.schedules = response.records!
+                                group.leave()
                             }
-                        
+                            group.wait()
+                            self.ready = true
                         }
                         else{
                             callback((CustomError.parsingError, "parsingerror"), nil)
@@ -110,8 +116,9 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                 callback((CustomError.requestError,error.debugDescription), nil)
             }
         }
+        //self.dateFormatingAndSorting(info: self.schedules)
         task.resume()
-
+        
     }
     
     func fetch(){
@@ -126,5 +133,41 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
             }
         }
     }
-    
+    func dateFormatingAndSorting(){
+        var tempList : [Schedule] = self.schedules
+        
+        print(tempList[5].fields.start)
+        print(tempList[5].fields.end)
+        
+        var time : String
+        var date : String
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "fr_FR")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        var i = 0
+        for currentDate in tempList {
+            i = i+1
+            if let reformatorStart = formatter.date(from: currentDate.fields.start){
+                formatter.dateFormat = "hh:mm:ss a"
+                time = formatter.string(from: reformatorStart)
+                formatter.dateFormat = "yyyy-MM-dd"
+                date = formatter.string(from: reformatorStart)
+                
+                tempList[i-1].fields.start = date + " " + time
+            }
+            if let reformatorEnd = formatter.date(from: currentDate.fields.end){
+                formatter.dateFormat = "hh:mm:ss a"
+                time = formatter.string(from: reformatorEnd)
+                formatter.dateFormat = "yyyy-MM-dd"
+                date = formatter.string(from: reformatorEnd)
+                
+                tempList[i-1].fields.end = date + " " + time
+                
+            }
+        }
+        
+        print(tempList[5].fields.start)
+        print(tempList[5].fields.end)
+        self.schedules = tempList
+    }
 }

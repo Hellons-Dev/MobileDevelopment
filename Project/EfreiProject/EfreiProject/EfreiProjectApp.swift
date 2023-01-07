@@ -11,7 +11,10 @@ import SwiftUI
 struct EfreiProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            HomePage()
+            LoadingView()
+        }
+        WindowGroup {
+            HomePage(info: [Schedule]())
         }
     }
 }

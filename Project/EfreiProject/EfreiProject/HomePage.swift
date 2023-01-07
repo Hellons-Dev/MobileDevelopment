@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomePage: View {
     
-    @StateObject var requ = RequestFactory()
+    var info : [Schedule]
     
     var body: some View {
         HStack(alignment: .top){
             VStack(alignment: .leading) {
                 NavigationView {
-                    NavigationLink(destination: ListView(req: requ)){
+                    NavigationLink(destination: ListView(info : info)){
                         Text("Event Schedule")
                     }
                 }
@@ -31,13 +31,12 @@ struct HomePage: View {
         }
         .padding()
         .onAppear{
-            requ.getSchedule { (errorHandle, schedules) in}
         }
     }
 }
 
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
-        HomePage()
+        HomePage(info : [Schedule]())
     }
 }
