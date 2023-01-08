@@ -5,16 +5,47 @@ struct EventView: View {
     var body: some View {
         VStack{
             Text(activity.fields.activity)
-            Text(activity.fields.type)
-            Text(activity.fields.start)
-            Text(activity.fields.end)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .padding(.bottom,20)
+                
+            // Image("eventImage")
+             //   .resizable()
+               // .aspectRatio(contentMode: .fill)
+                //.frame(width: 150,height: 150)
+                //.clipped()
+                //.cornerRadius(150)
+                //.padding(.bottom,75)
+            
+        Text("Start: \(activity.fields.start)")
+                .padding(.bottom,10)
+ 	           Text("End: \(activity.fields.end)")
+                .padding(.bottom,10)
             /*VStack{ // this Vstack is supposed to display the the speakers, but I can't make it work
                 ForEach(activity.fields.speakerS!){ x in
                     Text(x)
                 }
             }*/
-            Text(activity.fields.notes ?? "no notes")
-            Text(activity.fields.location)
+                
+               
+            Text("Room: \(activity.fields.location)")
+                .padding(.bottom,10)
+            HStack(){
+            Image(systemName: "pencil")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+                .padding(.top, 10)
+                .padding(.leading, 10)
+                .padding(.bottom, 5)
+                .padding(.trailing, 10)
+                
+            Text("note: \(activity.fields.notes ?? "no notes")")
+                .padding(.bottom,10)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.red)
+            }
+            Spacer()
         }
     }
 }
