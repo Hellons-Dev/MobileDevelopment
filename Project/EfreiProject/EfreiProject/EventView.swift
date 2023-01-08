@@ -2,7 +2,10 @@ import SwiftUI
 
 struct EventView: View {
     var activity : Schedule
+    
+       
     var body: some View {
+        
         if activity.fields.activity.lowercased().contains(/^(breakfast|lunch|welcome breakfast)$/)
         {
             
@@ -20,7 +23,7 @@ struct EventView: View {
             Text(activity.fields.activity)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                .padding(.bottom,20)
+                .padding(.bottom,10)
            
             
             // Image("eventImage")
@@ -31,18 +34,31 @@ struct EventView: View {
                 //.cornerRadius(150)
                 //.padding(.bottom,75)
             
-        Text("Start: \(activity.fields.start)")
+            Text("Start: \(activity.fields.start)")
                 .padding(.bottom,10)
- 	           Text("End: \(activity.fields.end)")
+            Text("End: \(activity.fields.end)")
                 .padding(.bottom,10)
-            VStack{ // this Vstack is supposed to display the the speakers, but I can't make it work
-                ForEach(activity.fields.speakerS!){ x in
-                    Text(x)
-                }
-            }
+            //if areThereSpeakers(speakers: activity.fields.speakerS){
+            //    VStack{
+            //        Text("Speakers :")
+            //            .font(.title)
+            //            .fontWeight(.semibold)
+            //            .padding(.bottom,10)
+            //            .padding(.top,10)
                 
-               
-            Text("Room: \(activity.fields.location)")
+            //        ForEach(activity.fields.speakerS!, id:\.self){ speaker in
+            //            Text(speaker)
+            //
+            //        }
+            //    }
+            //}
+                
+            Text("Room :")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.bottom,10)
+                .padding(.top,10)
+            Text(activity.fields.location)
                 .padding(.bottom,10)
             
                 
@@ -61,4 +77,11 @@ struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         EventView(activity : Schedule(id :"99", fields: Fields(end: "12 p.m", activity: "Maths", type: "Course", speakerS: ["Moise, Adams"], start: "monday 9 a.m", location: "Efrei", notes: "something")))
     }
+}
+
+func areThereSpeakers(speakers: [String]?) -> Bool {
+    if speakers?.isEmpty != nil{
+        return true
+    }
+    return false
 }

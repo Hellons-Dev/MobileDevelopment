@@ -12,17 +12,19 @@ struct LoadingView: View {
     @StateObject var requ = RequestFactory()
     
     var body: some View {
-        if isReady(info: requ) {
-            
-            HomePage(info: requ.schedules)
-        }
-        VStack(){
-            Text("test")
-        }
-        .padding()
-        .onAppear{
-            requ.getSchedule { (errorHandle, schedules) in}
-        }
+        NavigationView{
+            if isReady(info: requ) {
+                
+                HomePage(info: requ.schedules)
+            }
+            VStack(){
+                Text("test")
+            }
+            .padding()
+            .onAppear{
+                requ.getSchedule { (errorHandle, schedules) in}
+            }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

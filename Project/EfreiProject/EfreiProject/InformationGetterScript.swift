@@ -14,7 +14,7 @@ struct Schedule : Codable, Hashable{
 
 struct Fields: Codable, Hashable{
     var end, activity, type: String
-    let speakerS: [String]?
+    var speakerS: [String]?
     var start, location: String
     let notes: String?
 
@@ -185,7 +185,6 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                                 }
                                 group.wait()
                             }
-                            
                             group.enter()
                             DispatchQueue.main.async {
                                 //print(tempList[5].fields.start)

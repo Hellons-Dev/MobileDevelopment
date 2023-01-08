@@ -12,31 +12,33 @@ struct HomePage: View {
     var info : [Schedule]
     
     var body: some View {
-        HStack(alignment: .top){
-            VStack(alignment: .leading) {
-                NavigationView {
-                    NavigationLink(destination: ListView(info : info)){
-                        Text("Event Schedule")
+        NavigationView {
+            HStack(alignment: .top){
+                Text("Day1")
+                    .frame(alignment: .topLeading)
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                List{
+                    ForEach(info, id: \.self) { information in
+                        if information.fields.start.contains("2023-02-08"){
+                            Text("\(information.fields.start)\n\(information.fields.activity)").padding(.leading)
+                        }
                     }
                 }
+                NavigationLink(destination: ListView(info : info)){
+                    Text("Event Schedule")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                }
+            }
+            .padding()
+            .onAppear{
             }
         }
-        
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Event of the day:")
-            
-        }
-        .padding()
-        .onAppear{
-        }
     }
-}
-
-struct HomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePage(info : [Schedule]())
+    
+    struct HomePage_Previews: PreviewProvider {
+        static var previews: some View {
+            HomePage(info : [Schedule]())
+        }
     }
 }
