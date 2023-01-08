@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDAC485A296479FB00FCA94A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC4859296479FA00FCA94A /* ListView.swift */; };
+		FDAC485C29647AE000FCA94A /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC485B29647AE000FCA94A /* EventView.swift */; };
+		FDAC485E29647B8300FCA94A /* ListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC485D29647B8300FCA94A /* ListEntryView.swift */; };
+		FDBFDC27294767CA00143568 /* EfreiProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */; };
+		FDBFDC2B294767CD00143568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBFDC2A294767CD00143568 /* Assets.xcassets */; };
+		FDBFDC2E294767CD00143568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBFDC2D294767CD00143568 /* Preview Assets.xcassets */; };
+		FDBFDC38294767CD00143568 /* EfreiProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC37294767CD00143568 /* EfreiProjectTests.swift */; };
+		FDBFDC42294767CD00143568 /* EfreiProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC41294767CD00143568 /* EfreiProjectUITests.swift */; };
+		FDBFDC44294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC43294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift */; };
+		FDBFDC5129476ECF00143568 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBFDC5029476ECF00143568 /* HomePage.swift */; };
+		FDD1625C29531BBD00F171AC /* InformationGetterScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */; };
+		FDDEE7CA296A09C3003B2A02 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDBFDC34294767CD00143568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDBFDC1B294767CA00143568 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDBFDC22294767CA00143568;
+			remoteInfo = EfreiProject;
+		};
+		FDBFDC3E294767CD00143568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDBFDC1B294767CA00143568 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDBFDC22294767CA00143568;
+			remoteInfo = EfreiProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FDAC4859296479FA00FCA94A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		FDAC485B29647AE000FCA94A /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		FDAC485D29647B8300FCA94A /* ListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryView.swift; sourceTree = "<group>"; };
+		FDBFDC23294767CA00143568 /* EfreiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfreiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectApp.swift; sourceTree = "<group>"; };
+		FDBFDC2A294767CD00143568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDBFDC2D294767CD00143568 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDBFDC33294767CD00143568 /* EfreiProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EfreiProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDBFDC37294767CD00143568 /* EfreiProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectTests.swift; sourceTree = "<group>"; };
+		FDBFDC3D294767CD00143568 /* EfreiProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EfreiProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDBFDC41294767CD00143568 /* EfreiProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectUITests.swift; sourceTree = "<group>"; };
+		FDBFDC43294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfreiProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDBFDC5029476ECF00143568 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationGetterScript.swift; sourceTree = "<group>"; };
+		FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDBFDC20294767CA00143568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC30294767CD00143568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC3A294767CD00143568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDBFDC1A294767CA00143568 = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC25294767CA00143568 /* EfreiProject */,
+				FDBFDC36294767CD00143568 /* EfreiProjectTests */,
+				FDBFDC40294767CD00143568 /* EfreiProjectUITests */,
+				FDBFDC24294767CA00143568 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDBFDC24294767CA00143568 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC23294767CA00143568 /* EfreiProject.app */,
+				FDBFDC33294767CD00143568 /* EfreiProjectTests.xctest */,
+				FDBFDC3D294767CD00143568 /* EfreiProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDBFDC25294767CA00143568 /* EfreiProject */ = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC26294767CA00143568 /* EfreiProjectApp.swift */,
+				FDDEE7C9296A09C3003B2A02 /* LoadingView.swift */,
+				FDBFDC5029476ECF00143568 /* HomePage.swift */,
+				FDD1625B29531BBD00F171AC /* InformationGetterScript.swift */,
+				FDAC4859296479FA00FCA94A /* ListView.swift */,
+				FDAC485B29647AE000FCA94A /* EventView.swift */,
+				FDAC485D29647B8300FCA94A /* ListEntryView.swift */,
+				FDBFDC2A294767CD00143568 /* Assets.xcassets */,
+				FDBFDC2C294767CD00143568 /* Preview Content */,
+			);
+			path = EfreiProject;
+			sourceTree = "<group>";
+		};
+		FDBFDC2C294767CD00143568 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC2D294767CD00143568 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FDBFDC36294767CD00143568 /* EfreiProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC37294767CD00143568 /* EfreiProjectTests.swift */,
+			);
+			path = EfreiProjectTests;
+			sourceTree = "<group>";
+		};
+		FDBFDC40294767CD00143568 /* EfreiProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDBFDC41294767CD00143568 /* EfreiProjectUITests.swift */,
+				FDBFDC43294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift */,
+			);
+			path = EfreiProjectUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDBFDC22294767CA00143568 /* EfreiProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDBFDC47294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProject" */;
+			buildPhases = (
+				FDBFDC1F294767CA00143568 /* Sources */,
+				FDBFDC20294767CA00143568 /* Frameworks */,
+				FDBFDC21294767CA00143568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EfreiProject;
+			productName = EfreiProject;
+			productReference = FDBFDC23294767CA00143568 /* EfreiProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDBFDC32294767CD00143568 /* EfreiProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDBFDC4A294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProjectTests" */;
+			buildPhases = (
+				FDBFDC2F294767CD00143568 /* Sources */,
+				FDBFDC30294767CD00143568 /* Frameworks */,
+				FDBFDC31294767CD00143568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDBFDC35294767CD00143568 /* PBXTargetDependency */,
+			);
+			name = EfreiProjectTests;
+			productName = EfreiProjectTests;
+			productReference = FDBFDC33294767CD00143568 /* EfreiProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDBFDC3C294767CD00143568 /* EfreiProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDBFDC4D294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProjectUITests" */;
+			buildPhases = (
+				FDBFDC39294767CD00143568 /* Sources */,
+				FDBFDC3A294767CD00143568 /* Frameworks */,
+				FDBFDC3B294767CD00143568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDBFDC3F294767CD00143568 /* PBXTargetDependency */,
+			);
+			name = EfreiProjectUITests;
+			productName = EfreiProjectUITests;
+			productReference = FDBFDC3D294767CD00143568 /* EfreiProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDBFDC1B294767CA00143568 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					FDBFDC22294767CA00143568 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					FDBFDC32294767CD00143568 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = FDBFDC22294767CA00143568;
+					};
+					FDBFDC3C294767CD00143568 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = FDBFDC22294767CA00143568;
+					};
+				};
+			};
+			buildConfigurationList = FDBFDC1E294767CA00143568 /* Build configuration list for PBXProject "EfreiProject" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDBFDC1A294767CA00143568;
+			productRefGroup = FDBFDC24294767CA00143568 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDBFDC22294767CA00143568 /* EfreiProject */,
+				FDBFDC32294767CD00143568 /* EfreiProjectTests */,
+				FDBFDC3C294767CD00143568 /* EfreiProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDBFDC21294767CA00143568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDBFDC2E294767CD00143568 /* Preview Assets.xcassets in Resources */,
+				FDBFDC2B294767CD00143568 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC31294767CD00143568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC3B294767CD00143568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDBFDC1F294767CA00143568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD1625C29531BBD00F171AC /* InformationGetterScript.swift in Sources */,
+				FDAC485E29647B8300FCA94A /* ListEntryView.swift in Sources */,
+				FDAC485A296479FB00FCA94A /* ListView.swift in Sources */,
+				FDBFDC5129476ECF00143568 /* HomePage.swift in Sources */,
+				FDBFDC27294767CA00143568 /* EfreiProjectApp.swift in Sources */,
+				FDDEE7CA296A09C3003B2A02 /* LoadingView.swift in Sources */,
+				FDAC485C29647AE000FCA94A /* EventView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC2F294767CD00143568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDBFDC38294767CD00143568 /* EfreiProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDBFDC39294767CD00143568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDBFDC44294767CD00143568 /* EfreiProjectUITestsLaunchTests.swift in Sources */,
+				FDBFDC42294767CD00143568 /* EfreiProjectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDBFDC35294767CD00143568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDBFDC22294767CA00143568 /* EfreiProject */;
+			targetProxy = FDBFDC34294767CD00143568 /* PBXContainerItemProxy */;
+		};
+		FDBFDC3F294767CD00143568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDBFDC22294767CA00143568 /* EfreiProject */;
+			targetProxy = FDBFDC3E294767CD00143568 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FDBFDC45294767CD00143568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FDBFDC46294767CD00143568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDBFDC48294767CD00143568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EfreiProject/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDBFDC49294767CD00143568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EfreiProject/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FDBFDC4B294767CD00143568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EfreiProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EfreiProject";
+			};
+			name = Debug;
+		};
+		FDBFDC4C294767CD00143568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EfreiProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EfreiProject";
+			};
+			name = Release;
+		};
+		FDBFDC4E294767CD00143568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EfreiProject;
+			};
+			name = Debug;
+		};
+		FDBFDC4F294767CD00143568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexis.EfreiProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EfreiProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDBFDC1E294767CA00143568 /* Build configuration list for PBXProject "EfreiProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDBFDC45294767CD00143568 /* Debug */,
+				FDBFDC46294767CD00143568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDBFDC47294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDBFDC48294767CD00143568 /* Debug */,
+				FDBFDC49294767CD00143568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDBFDC4A294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDBFDC4B294767CD00143568 /* Debug */,
+				FDBFDC4C294767CD00143568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDBFDC4D294767CD00143568 /* Build configuration list for PBXNativeTarget "EfreiProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDBFDC4E294767CD00143568 /* Debug */,
+				FDBFDC4F294767CD00143568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDBFDC1B294767CA00143568 /* Project object */;
+}
