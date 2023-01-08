@@ -13,10 +13,11 @@ struct LoadingView: View {
     
     var body: some View {
         if isReady(info: requ) {
+            
             HomePage(info: requ.schedules)
         }
         VStack(){
-            
+            Text("test")
         }
         .padding()
         .onAppear{
@@ -39,4 +40,3 @@ func isReady(info : RequestFactory) -> Bool{
     }
     return false
 }
-

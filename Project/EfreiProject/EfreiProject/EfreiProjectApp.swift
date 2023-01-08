@@ -13,8 +13,5 @@ struct EfreiProjectApp: App {
         WindowGroup {
             LoadingView()
         }
-        WindowGroup {
-            HomePage(info: [Schedule]())
-        }
     }
 }

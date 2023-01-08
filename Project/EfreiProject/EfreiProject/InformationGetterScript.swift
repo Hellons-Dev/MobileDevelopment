@@ -94,13 +94,84 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                         group.enter()
                         if let response = try?JSONDecoder().decode(Records.self, from: data) {
                             callback((nil, nil), response.records)
-                            
+                            var tempList : [Schedule] = []
                             DispatchQueue.main.async {
                                 self.schedules = response.records!
+                                tempList = self.schedules
                                 group.leave()
+                                self.ready = true
                             }
                             group.wait()
-                            self.ready = true
+                            
+                            var i = 0
+                            for entry in tempList {
+                                group.enter()
+                                DispatchQueue.main.async {
+                                    var time : String
+                                    var date : String
+                                    let formatter = DateFormatter()
+                                    formatter.locale = Locale(identifier: "fr_FR")
+                                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                    i = i+1
+                                    if let reformator = formatter.date(from: entry.fields.start){
+                                        formatter.dateFormat = "hh:mm:ss a"
+                                        time = formatter.string(from: reformator)
+                                        formatter.dateFormat = "yyyy-MM-dd"
+                                        date = formatter.string(from: reformator)
+                                        
+                                        tempList[i-1].fields.start = date + " " + time
+                                    }
+                                    //print(tempList[i-1].fields.start)
+                                    
+                                    group.leave()
+                                }
+                                group.wait()
+                            }
+                            i=0
+                            for entry in tempList {
+                                group.enter()
+                                DispatchQueue.main.async {
+                                    var time : String
+                                    var date : String
+                                    let formatter = DateFormatter()
+                                    formatter.locale = Locale(identifier: "fr_FR")
+                                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                    i = i+1
+                                    if let reformator = formatter.date(from: entry.fields.end){
+                                        formatter.dateFormat = "hh:mm:ss a"
+                                        time = formatter.string(from: reformator)
+                                        formatter.dateFormat = "yyyy-MM-dd"
+                                        date = formatter.string(from: reformator)
+                                        
+                                        tempList[i-1].fields.end = date + " " + time
+                                    }
+                                    //print(tempList[i-1].fields.start)
+                                    
+                                    group.leave()
+                                }
+                                group.wait()
+                            }
+                            var sorted = false
+                            //while sorted != true {
+                                i=0
+                                for entry in tempList{
+                                    group.enter()
+                                    DispatchQueue.main.async {
+                                        group.leave()
+                                    }
+                                    group.wait()
+                                }
+                            //}
+                            group.enter()
+                            DispatchQueue.main.async {
+                                //print(tempList[5].fields.start)
+                                //print(tempList[5].fields.end)
+                                self.schedules = tempList
+                                group.leave()
+                                self.ready = true
+                            }
+                            group.wait()
+                            
                         }
                         else{
                             callback((CustomError.parsingError, "parsingerror"), nil)
@@ -133,6 +204,7 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
             }
         }
     }
+    
     func dateFormatingAndSorting(){
         var tempList : [Schedule] = self.schedules
         
