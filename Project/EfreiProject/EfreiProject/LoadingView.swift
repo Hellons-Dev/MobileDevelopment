@@ -18,7 +18,7 @@ struct LoadingView: View {
                 HomePage(info: requ.schedules)
             }
             VStack(){
-                Text("Loading")
+                Text("Loading").font(.largeTitle)
             }
             .padding()
             .onAppear{

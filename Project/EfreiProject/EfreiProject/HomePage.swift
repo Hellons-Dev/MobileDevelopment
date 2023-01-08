@@ -24,7 +24,7 @@ struct HomePage: View {
                     NavigationLink(destination: ListView(info : info)){
                         Text("Event Schedule")
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                    }
+                    }.position(x:UIScreen.main.bounds.size.width/5 ,y:85 )
                 }
                 HStack{
                     List{
