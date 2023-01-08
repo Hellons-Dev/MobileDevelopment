@@ -3,12 +3,26 @@ import SwiftUI
 struct EventView: View {
     var activity : Schedule
     var body: some View {
+        if activity.fields.activity.lowercased().contains(/^(breakfast|lunch|welcome breakfast)$/)
+        {
+            
+            Image("breakfast")
+        }
+        else if activity.fields.activity.lowercased().contains("breakout")
+        {
+           Image("breakout")
+        }
+        else
+        {
+           Image("work")
+        }
         VStack{
             Text(activity.fields.activity)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .padding(.bottom,20)
-                
+           
+            
             // Image("eventImage")
              //   .resizable()
                // .aspectRatio(contentMode: .fill)
@@ -21,30 +35,23 @@ struct EventView: View {
                 .padding(.bottom,10)
  	           Text("End: \(activity.fields.end)")
                 .padding(.bottom,10)
-            /*VStack{ // this Vstack is supposed to display the the speakers, but I can't make it work
+            VStack{ // this Vstack is supposed to display the the speakers, but I can't make it work
                 ForEach(activity.fields.speakerS!){ x in
                     Text(x)
                 }
-            }*/
+            }
                 
                
             Text("Room: \(activity.fields.location)")
                 .padding(.bottom,10)
-            HStack(){
-            Image(systemName: "pencil")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-                .padding(.top, 10)
-                .padding(.leading, 10)
-                .padding(.bottom, 5)
-                .padding(.trailing, 10)
+            
                 
             Text("note: \(activity.fields.notes ?? "no notes")")
                 .padding(.bottom,10)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.red)
-            }
+            
             Spacer()
         }
     }
