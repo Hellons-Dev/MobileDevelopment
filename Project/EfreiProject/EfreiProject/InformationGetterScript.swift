@@ -99,11 +99,45 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                                 self.schedules = response.records!
                                 tempList = self.schedules
                                 group.leave()
-                                self.ready = true
+                                //self.ready = true
                             }
                             group.wait()
                             
                             var i = 0
+                            var sorted = false
+                            var found = false
+                            while sorted != true {
+                                i=0
+                                found = false
+                                for entry in tempList{
+                                    group.enter()
+                                    DispatchQueue.main.async {
+                                        let formatter = DateFormatter()
+                                        formatter.locale = Locale(identifier: "fr_FR")
+                                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                        i += 1
+                                        if i < tempList.count {
+                                            if let entryDate = formatter.date(from: entry.fields.start) {
+                                                if let compareDate = formatter.date(from: tempList[i].fields.start) {
+                                                    
+                                                    if compareDate < entryDate {
+                                                        tempList.swapAt(i-1, i)
+                                                        found = true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                        group.leave()
+                                    }
+                                    group.wait()
+                                }
+                                if found == false {
+                                    sorted = true
+                                }
+                            }
+                            
+                            i = 0
                             for entry in tempList {
                                 group.enter()
                                 DispatchQueue.main.async {
@@ -151,17 +185,7 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                                 }
                                 group.wait()
                             }
-                            var sorted = false
-                            //while sorted != true {
-                                i=0
-                                for entry in tempList{
-                                    group.enter()
-                                    DispatchQueue.main.async {
-                                        group.leave()
-                                    }
-                                    group.wait()
-                                }
-                            //}
+                            
                             group.enter()
                             DispatchQueue.main.async {
                                 //print(tempList[5].fields.start)
