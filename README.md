@@ -16,7 +16,7 @@ Pour cela le cahier des charge suivant nous as été transmis :
 + Sur la "Home Page" doivent se trouver les évènements du premier jour
 + Chaque évènement doit disposé d'une page de détail.
 
-pour complété ce cahier des charges nous avons accès a une API regroupant les différentes données tel que :
+Pour complété ce cahier des charges nous avons accès a une API regroupant les différentes données tel que :
 + Les noms des évènements
 + Leurs programmation
 + Les salles
