@@ -15,7 +15,7 @@
 ## Travail réalisé sur cette branche
 
 Sur cette branche se trouve la toute premiere version de la mise en place du projet SWIFT sous XCODE
-Cette tout première version **non exploitable** avait pour but la mise en place du projet.
+Cette tout première version **__non exploitable__** avait pour but la mise en place du projet.
 
 Cette branche contient donc deux fichier principaux :
 - Le fichier "Project" dans lequel se trouve le projet XCODE nouvellement créer.
