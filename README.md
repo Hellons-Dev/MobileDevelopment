@@ -23,11 +23,4 @@ Pour complété ce cahier des charges nous avons accès a une API regroupant les
 
 ## Travail réalisé sur cette branche
 
-Sur cette branche se trouve la toute premiere version de la mise en place du projet SWIFT sous XCODE
-Cette tout première version **_non exploitable_** avait pour but la mise en place du projet.
-
-Cette branche contient donc deux fichier principaux :
-- Le fichier "Project" dans lequel se trouve le projet XCODE nouvellement créer.
-- Le fichier "test.playground" dans lequel se trouve les premiers tests d'appel réseau.
-
-Nous avons donc réaliser les premier test d'appel réseau que nous effectuer sur un playground de sorte à avoir une meilleur prise en main de ce code.
+Sur cette branche se trouve un seul fichier intitulé "Project" étant la toute dernière version fonctionnelle du projet et disposant de toutes les fonctionnalités présentes dans la version de la branche "RawOrderedInterface" mais disposant d'une refonte graphique ainsi qu'une amélioration des fonctionnalités et une correction de l'écran de chargement ainsi que un ajout du traitement des erreur lié à l'absence de réseau ou des erreurs liées aux problèmes d'obtention des données car table inaccessible ou données impossible à lires.
