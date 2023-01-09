@@ -39,8 +39,9 @@ struct EventView: View {
                     .padding(.bottom,10)
                 Text("End: \(activity.fields.end)")
                     .padding(.bottom,10)
-                if areThereSpeakers(speakers: activity.fields.speakerS){
-                    VStack{
+               
+                VStack{
+                    if areThereSpeakers(speakers: activity.fields.speakerS){
                         Text("Speakers :")
                             .font(.title)
                             .fontWeight(.semibold)
@@ -52,32 +53,32 @@ struct EventView: View {
                             
                         }
                         //    }
-                        //}
+                    }
                         
-                        Text("Room :")
+                    Text("Room :")
                             .font(.title)
                             .fontWeight(.semibold)
                             .padding(.bottom,10)
                             .padding(.top,10)
-                        Text(activity.fields.location)
+                    Text(activity.fields.location)
                             .padding(.bottom,10)
                         
                         
                         
-                        if activity.fields.notes != nil {
-                            Text("note: \(activity.fields.notes ?? "no notes")")
+                    if activity.fields.notes != nil {
+                        Text("note: \(activity.fields.notes ?? "no notes")")
                                 .padding(.bottom,10)
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.red)
-                        }
-                        Spacer()
                     }
+                    Spacer()
                 }
             }
         }
     }
 }
+
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {

@@ -62,6 +62,10 @@ protocol RequestFactoryProtocol {
 class RequestFactory : RequestFactoryProtocol, ObservableObject {
     @Published var schedules : [Schedule] = []
     @Published var ready : Bool = false
+    @Published var netError : Bool = false
+    @Published var dataError : Bool = false
+    @Published var parsingError : Bool = false
+    
     
     internal func createRequest(urlStr: String, requestType: RequestType,params: [String]?) -> URLRequest {
         var url: URL = URL(string: urlStr)!
@@ -197,16 +201,19 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
                             
                         }
                         else{
+                            self.parsingError = true
                             callback((CustomError.parsingError, "parsingerror"), nil)
                             print(responseHttp.statusCode, "responseHttp statusCode \n")
                         }
                     }
                     else{
+                        self.dataError = true
                         callback((CustomError.statusCodeError, "statuscode: \(responseHttp.statusCode)"), nil)
                     }
                 }
             }
             else{
+                self.netError = true
                 callback((CustomError.requestError,error.debugDescription), nil)
             }
         }
