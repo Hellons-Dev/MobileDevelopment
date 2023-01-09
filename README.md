@@ -10,7 +10,18 @@
 
 ## Description du projet
 
+Le projet de développement mobile et un projet visant à créer une application sous IOS réalisant l'affichage du planning d'un évènement sur deux jours : le 08 et le 09 Février 2023.
+Pour cela le cahier des charge suivant nous as été transmis :
++ L'application doit être codé en SWIFT UI
++ Sur la "Home Page" doivent se trouver les évènements du premier jour
++ Chaque évènement doit disposé d'une page de détail.
 
+pour complété ce cahier des charges nous avons accès a une API regroupant les différentes données tel que :
++ Les noms des évènements
++ Leurs programmation
++ Les salles
++ Les présentateurs
++ Les notes liés aux évènements
 
 ## Travail réalisé sur cette branche
 
