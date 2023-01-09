@@ -15,10 +15,10 @@
 ## Travail réalisé sur cette branche
 
 Sur cette branche se trouve la toute premiere version de la mise en place du projet SWIFT sous XCODE
-Cette tout première version **__non exploitable__** avait pour but la mise en place du projet.
+Cette tout première version **_non exploitable_** avait pour but la mise en place du projet.
 
 Cette branche contient donc deux fichier principaux :
 - Le fichier "Project" dans lequel se trouve le projet XCODE nouvellement créer.
-- Le fichier "Playground" dans lequel se trouve les premiers tests d'appel réseau.
+- Le fichier "test.playground" dans lequel se trouve les premiers tests d'appel réseau.
 
 Nous avons donc réaliser les premier test d'appel réseau que nous effectuer sur un playground de sorte à avoir une meilleur prise en main de ce code.
