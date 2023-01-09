@@ -10,7 +10,6 @@ struct ListView: View {
         
         NavigationView{
             List(info, id: \.self) { schedule in
-                Text(schedule.fields.start).padding(.top, 20)
                 NavigationLink(destination: EventView(activity: schedule)){
                     ListEntryView(schedule: schedule)
                 }

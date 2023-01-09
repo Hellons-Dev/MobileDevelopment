@@ -5,7 +5,7 @@ struct ListEntryView: View {
     
     var body: some View {
         HStack {
-            Text(schedule.fields.activity)
+            Text("\(schedule.fields.start)\n\(schedule.fields.activity)")
         }
     }
 }

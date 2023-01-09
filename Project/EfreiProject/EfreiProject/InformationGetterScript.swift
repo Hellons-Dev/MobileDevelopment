@@ -81,7 +81,7 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
         return request
     }
     func getSchedule(callback: @escaping ((errorType: CustomError?,
-                                                errorMessage: String?), [Schedule]?) -> Void) {
+                                           errorMessage: String?), [Schedule]?) -> Void) {
         let session = URLSession(configuration: .default)
         let scheduleUrlString = "https://api.airtable.com/v0/appLxCaCuYWnjaSKB/%F0%9F%93%86%20Schedule" // my modification
         
@@ -214,55 +214,5 @@ class RequestFactory : RequestFactoryProtocol, ObservableObject {
         task.resume()
         
     }
-    
-    func fetch(){
-        let requestFactory = RequestFactory()
-        requestFactory.getSchedule { (errorHandle, events) in
-            if let list = events, let event = list.last {
-                //print(type(of: list))
-                //print(list.count)
-                Text(event.id)
-                //print(furniture.fields)
-                //print("I got something")
-            }
-        }
-    }
-    
-    func dateFormatingAndSorting(){
-        var tempList : [Schedule] = self.schedules
-        
-        print(tempList[5].fields.start)
-        print(tempList[5].fields.end)
-        
-        var time : String
-        var date : String
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "fr_FR")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        var i = 0
-        for currentDate in tempList {
-            i = i+1
-            if let reformatorStart = formatter.date(from: currentDate.fields.start){
-                formatter.dateFormat = "hh:mm:ss a"
-                time = formatter.string(from: reformatorStart)
-                formatter.dateFormat = "yyyy-MM-dd"
-                date = formatter.string(from: reformatorStart)
-                
-                tempList[i-1].fields.start = date + " " + time
-            }
-            if let reformatorEnd = formatter.date(from: currentDate.fields.end){
-                formatter.dateFormat = "hh:mm:ss a"
-                time = formatter.string(from: reformatorEnd)
-                formatter.dateFormat = "yyyy-MM-dd"
-                date = formatter.string(from: reformatorEnd)
-                
-                tempList[i-1].fields.end = date + " " + time
-                
-            }
-        }
-        
-        print(tempList[5].fields.start)
-        print(tempList[5].fields.end)
-        self.schedules = tempList
-    }
 }
+
