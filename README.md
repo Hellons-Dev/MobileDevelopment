@@ -25,9 +25,10 @@ Pour complété ce cahier des charges nous avons accès a une API regroupant les
 
 ## Travail réalisé sur cette branche
 
-Sur cette branche se trouve la toute premiere version exploitable du projet SWIFT sous XCODE
+Sur cette branche se trouve la toute premiere version exploitable du projet SWIFT sous XCODE.
+
 Cette tout première version avait pour but la mise en place des view du projet ainsi que des fonctionnalitées respectueuse du cahier des charges attibué.
 
 Cette branche contient donc un fichier principal intitulé "Project" dans lequel se trouve le projet XCODE respectueux du cahier des charge et entierement fonctionnel.
 Dans cette version nous avons mis en place de multiple view dont un view automatique utilisé en première view réalisant la fonction d'écran de chargement et récupérant les informations de l'API ainsi que la réalisation des fonctions de triage des données par ordre date et heure ainsi que la fonction de formattage des données de date et heure.
-Cett version comprend donc un écran de chargement qui lorsque les données sont reçu, adaptées et trier, passe directement à la "Home Page" sur laquelle se trouves le planning du premier jour de l'évènement ainsi qu'un bouton schedule redirigant vers la page contenant la liste de tout les évènements répartis sur les deux jours avec possibilité de cliquer sur chacuns d'entre eux pour obtenir leurs détails.
+Cette version comprend donc un écran de chargement qui lorsque les données sont reçu, adaptées et trier, passe directement à la "Home Page" sur laquelle se trouves le planning du premier jour de l'évènement ainsi qu'un bouton schedule redirigant vers la page contenant la liste de tout les évènements répartis sur les deux jours avec possibilité de cliquer sur chacuns d'entre eux pour obtenir leurs détails.
